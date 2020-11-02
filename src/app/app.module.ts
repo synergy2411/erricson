@@ -2,15 +2,25 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
+  declarations: [   // Component, Pipe, Directive
+    AppComponent,
+    UserComponent
   ],
-  imports: [
+  imports: [        // Modules - Built-in / Custom Module
     BrowserModule
   ],
-  providers: [],
+  providers: [],      // Services
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+// Angular Building blocks
+// - Module
+// - Components
+// - Pipe
+// - Services
+// - Directives
