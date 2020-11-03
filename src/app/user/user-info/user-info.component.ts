@@ -1,3 +1,4 @@
+import { User } from './../../model/user.model';
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -6,5 +7,22 @@ import { Component, Input } from '@angular/core';
   styleUrls : ['./user-info.component.css']
 })
 export class UserInfoComponent {
-  @Input() user: any;
+  @Input() user: User;
+
+  myClasses = {
+    'feature' : true,
+    'my-border' : false
+  };
+
+  myStyle = {
+    'color' : 'red',
+    'border' : '2px blue solid'
+  }
+
+  onToggleClass(){
+    this.myClasses['my-border'] = !this.myClasses['my-border'];
+    this.myClasses['feature'] = !this.myClasses['feature'];
+
+  }
+
 }

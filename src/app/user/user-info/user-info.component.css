@@ -1,0 +1,9 @@
+.feature{
+  font-size: bold;
+  color : #000000;
+  background-color: darkgrey;;
+}
+
+.my-border{
+  border : 2px #ff45ff solid;
+}

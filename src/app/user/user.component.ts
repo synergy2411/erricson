@@ -1,24 +1,21 @@
-import { Component } from '@angular/core';
+import { User } from './../model/user.model';
+import { Component, OnInit } from '@angular/core';
+import { USER_DATA } from '../model/mocks';
 
 @Component({
   selector : 'app-user',
   templateUrl : './user.component.html',
   styleUrls : ['./user.component.css']
 })
-export class UserComponent {
+export class UserComponent implements OnInit {
 
-  user = {
-    firstName : 'Bill',
-    lastName : 'Gates',
-    dob : new Date('Dec 21, 1965'),
-    income : 50000,
-    company : 'Microsoft',
-    isWorking : true,
-    image : 'assets/images/bill.jpg',
-    votes : 120
-  };
+  users: User[];
 
-  onMoreInfo(usr: any) {
+  ngOnInit(){
+    this.users = USER_DATA;
+  }
+
+  onMoreInfo(usr: User) {
     alert(`From Child Event : Mr. ${usr.lastName} is working with ${usr.company}!`);
   }
 
