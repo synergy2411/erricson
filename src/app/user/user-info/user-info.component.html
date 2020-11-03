@@ -1,18 +1,21 @@
 <!-- <ng-content select="header"></ng-content> -->
 
+<!-- {{ user | json }} -->
+
 <!-- Angular Expression -->
-<h1 appHighlight [myColor]="'yellow'">{{ user.firstName }} {{ user.lastName }}</h1>
+<h1 appHighlight [myColor]="'yellow'">
+  {{ user.firstName | uppercase }} {{ user.lastName | uppercase }}</h1>
 <!-- Property Binding -->
 
 <!-- <p [ngClass]="['feature', 'my-border']">Income : <span [innerHTML]="user.income"></span></p> -->
 <!-- <p [ngClass]="{'feature' : true, 'my-border' : false}">Income : <span [innerHTML]="user.income"></span></p> -->
 <p [ngClass]="myClasses" (mousedown) = "onToggleClass()"
   *ngIf = "user.isWorking;else ElseTemplate">
-    Income : <span [innerHTML]="user.income"></span></p>
+    Income : <span [innerHTML]="user.income | currency : 'EUR'"></span></p>
 
 
 <!-- <p [ngStyle] = "myStyle">Date of Birth : {{ user.dob }}</p> -->
-<p>Date of Birth : {{ user.dob }}</p>
+<p>Date of Birth : {{ user.dob | date : 'MM/dd/yyyy'}}</p>
 
 
 
