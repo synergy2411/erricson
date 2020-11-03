@@ -14,7 +14,12 @@ export class UserComponent {
     income : 50000,
     company : 'Microsoft',
     isWorking : true,
-    image : 'assets/images/bill.jpg'
+    image : 'assets/images/bill.jpg',
+    votes : 120
   };
+
+  onMoreInfo(usr: any) {
+    alert(`Mr. ${usr.lastName} is working with ${usr.company}`)
+  }
 
 }
