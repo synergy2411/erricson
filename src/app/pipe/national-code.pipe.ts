@@ -3,9 +3,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 @Pipe({
   name : 'nationalCode'
 })
-export class NationalCodePipe implements PipeTransform{
+export class NationalCodePipe implements PipeTransform {
 
-  transform(contactNo: number, code: string){
+  transform(contactNo: number, code: string) {
     switch (code) {
       case 'US':
         return '+1 ' + contactNo;

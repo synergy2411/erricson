@@ -10,6 +10,7 @@ import { LifeCycleDemoComponent } from './life-cycle-demo/life-cycle-demo.compon
 import { HighlightDirective } from './directive/highlight.directive';
 import { PipeDemoComponent } from './pipe-demo/pipe-demo.component';
 import { NationalCodePipe } from './pipe/national-code.pipe';
+import { FilterPipe } from './pipe/filter.pipe';
 
 @NgModule({
   declarations: [   // Component, Pipe, Directive
@@ -20,7 +21,8 @@ import { NationalCodePipe } from './pipe/national-code.pipe';
     LifeCycleDemoComponent,
     HighlightDirective,
     PipeDemoComponent,
-    NationalCodePipe
+    NationalCodePipe,
+    FilterPipe
   ],
   imports: [        // Modules - Built-in / Custom Module
     BrowserModule,

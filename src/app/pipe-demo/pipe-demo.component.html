@@ -1,4 +1,34 @@
 <h1>Pipe Demo</h1>
-<h2>Data : {{ data | async | uppercase }} </h2>
-<h2>Contact Number : {{ contactNo | nationalCode}} </h2>
+<h2>Data : {{ data | async | uppercase }}</h2>
+<h2>Contact Number : {{ contactNo | nationalCode }}</h2>
 <!-- Pipe chaining -->
+<hr />
+
+<div class="card">
+  <div class="row">
+    <div class="col-sm-6 col-md-6">
+      <select [(ngModel)]="filteredStatus" class="form-control">
+        <option value="done">Completed Task</option>
+        <option value="pending">Pending Task</option>
+      </select>
+    </div>
+    <div class="col-sm-6 col-md-6">
+      <button class="btn btn-success btn-block"
+        (click) = "onAddNewItem()">Add New Item</button>
+    </div>
+  </div>
+</div>
+
+
+
+<ul class="list-group">
+  <li
+    class="list-group-item"
+    *ngFor="let todo of todos | filter: filteredStatus"
+  >
+    <p>
+      {{ todo.label | titlecase }}
+      <span class="float-right badge badge-dark">{{ todo.status }}</span>
+    </p>
+  </li>
+</ul>
