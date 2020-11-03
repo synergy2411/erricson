@@ -11,8 +11,8 @@ export class FilterPipe implements PipeTransform {
     }
 
     const resultArray = [];
-    for (let todo of todos) {
-      if (todo['status'] === filteredStatus) {
+    for (const todo of todos) {
+      if (todo.status === filteredStatus) {
         resultArray.push(todo);
       }
     }
