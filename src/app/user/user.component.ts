@@ -19,7 +19,7 @@ export class UserComponent {
   };
 
   onMoreInfo(usr: any) {
-    alert(`Mr. ${usr.lastName} is working with ${usr.company}`)
+    alert(`From Child Event : Mr. ${usr.lastName} is working with ${usr.company}!`);
   }
 
 }

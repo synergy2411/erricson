@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output,
+  EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-user-img',
   templateUrl: './user-img.component.html',
   styleUrls: ['./user-img.component.css']
 })
-export class UserImgComponent implements OnInit {
+export class UserImgComponent {
 
-  constructor() { }
+  @Input() user: any;
+  @Output() childEvent = new EventEmitter<any>();
 
-  ngOnInit() {
+  onMoreInfo(user: any) {
+    this.childEvent.emit(user);
   }
 
 }

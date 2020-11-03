@@ -5,30 +5,17 @@
     <li class="list-group-item">
       <div class="row">
         <div class="col-sm-4 col-md-4">
-          <img [src]="user.image" width="150" height="150" />
-          <br/>
-          <button class="btn btn-info btn-block"
-            (click)="onMoreInfo(user)">More Info</button>
+          <app-user-img [user]="user"
+            (childEvent)="onMoreInfo($event)"></app-user-img>
         </div>
         <div class="col-sm-8 col-md-8">
-          <!-- Angular Expression -->
-          <h1>{{ user.firstName }} {{ user.lastName }}</h1>
-          <!-- Property Binding -->
-          <p>Income : <span [innerHTML]="user.income"></span></p>
-          <p>Date of Birth : {{ user.dob }}</p>
-          <p>Total Votes : {{ user.votes }}
-              <input type="number"
-                [value]="user.votes"
-                (change) = "user.votes = $event.target.value">
-              <input type="number" [(ngModel)]="user.votes" >
-          </p>
+          <app-user-info [user]="user">
+            <header>This is the header</header>
+            <main class="my-content">Main Contents</main>
+            <footer>This is footer info</footer>
+          </app-user-info>
         </div>
       </div>
     </li>
   </ul>
 </div>
-
-<hr />
-
-<app-user-info></app-user-info>
-<app-user-img></app-user-img>

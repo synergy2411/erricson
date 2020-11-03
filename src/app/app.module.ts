@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
 import { UserInfoComponent } from './user/user-info/user-info.component';
 import { UserImgComponent } from './user/user-img/user-img.component';
+import { LifeCycleDemoComponent } from './life-cycle-demo/life-cycle-demo.component';
 
 @NgModule({
   declarations: [   // Component, Pipe, Directive
     AppComponent,
     UserComponent,
     UserInfoComponent,
-    UserImgComponent
+    UserImgComponent,
+    LifeCycleDemoComponent
   ],
   imports: [        // Modules - Built-in / Custom Module
     BrowserModule,
