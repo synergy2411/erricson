@@ -1,14 +1,25 @@
-<h2> HTML : User Component Loaded Successfully...</h2>
+<h2>HTML : User Component Loaded Successfully...</h2>
 
 <div class="container">
-  <h1>{{ user.firstName }} {{ user.lastName }} </h1>
+  <ul class="list-unstyled list-group">
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-sm-4 col-md-4">
+          <img [src]="user.image" width="150" height="150" />
+        </div>
+        <div class="col-sm-8 col-md-8">
+          <!-- Angular Expression -->
+          <h1>{{ user.firstName }} {{ user.lastName }}</h1>
+          <!-- Property Binding -->
+          <p>Income : <span [innerHTML]="user.income"></span></p>
+          <p>Date of Birth : {{ user.dob }}</p>
+        </div>
+      </div>
+    </li>
+  </ul>
 </div>
 
-
-
-
-
-<hr>
+<hr />
 
 <app-user-info></app-user-info>
 <app-user-img></app-user-img>

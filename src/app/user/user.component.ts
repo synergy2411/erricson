@@ -13,7 +13,8 @@ export class UserComponent {
     dob : new Date('Dec 21, 1965'),
     income : 50000,
     company : 'Microsoft',
-    isWorking : true
-  }
+    isWorking : true,
+    image : 'assets/images/bill.jpg'
+  };
 
 }
