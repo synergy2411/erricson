@@ -13,13 +13,16 @@ export class UserComponent implements OnInit {
   users: User[];
   constructor(private dataService: DataService) {}
 
-  ngOnInit(){
+  ngOnInit() {
     // this.users = USER_DATA;
     // this.users = this.dataService.getData();
-    this.dataService.getData()
-      .subscribe(((users) => {
-        this.users = users;
-      }))
+    // this.dataService.getData()
+    //   .subscribe(((users) => {
+    //     this.users = users;
+    //   }));
+
+    this.dataService.getRestData()
+      .subscribe((users: User[]) => this.users = users);
   }
 
   onMoreInfo(usr: User) {
