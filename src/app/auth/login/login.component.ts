@@ -14,7 +14,8 @@ export class LoginComponent implements OnInit {
   ]);
   password = new FormControl('', [
     Validators.required,
-    Validators.minLength(6)
+    Validators.minLength(6),
+    this.exclamationMarkValidator
   ]);
   loginForm: FormGroup;
 
@@ -31,5 +32,10 @@ export class LoginComponent implements OnInit {
   onLogin() {
     console.log(`Username : ${this.loginForm.value.username}`);
     console.log(`Password : ${this.loginForm.value.password}`);
+  }
+
+  exclamationMarkValidator(input: FormControl) {
+    const hasExclamation = input.value.indexOf('!') >= 0;
+    return hasExclamation ? null : {needExclamation : true};
   }
 }
