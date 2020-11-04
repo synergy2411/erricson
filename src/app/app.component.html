@@ -9,13 +9,13 @@
 
   <!-- <app-observable-demo></app-observable-demo> -->
 
-  <!-- <app-login></app-login> -->
+  <app-login></app-login>
 
-  <app-register></app-register>
+  <!-- <app-register></app-register> -->
 
   <!-- <app-pipe-demo></app-pipe-demo> -->
 
-  <app-user></app-user>
+  <app-user *ngIf="authService.isAuthenticated()"></app-user>
 
   <!-- <button class="btn btn-primary" (click)="onToggle()">
     Toggle LifeCycle Component
