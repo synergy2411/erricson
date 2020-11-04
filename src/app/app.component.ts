@@ -26,5 +26,9 @@ export class AppComponent implements OnInit {
   onToggle() {
     this.bool = !this.bool;
   }
+
+  onLogout(){
+    this.authService.logout();
+  }
 }
 

@@ -25,7 +25,7 @@ export class AuthService {
           .then(token => {
             console.log(token);
             this.token = token;
-          })
+          });
       }).catch(err => console.log(err));
   }
 
@@ -35,6 +35,13 @@ export class AuthService {
 
   isAuthenticated(){
     return this.token != null;
+  }
+
+  logout() {
+    firebase.default.auth().signOut()
+      .then(response => {
+        this.token = null;
+      }).catch(err => console.log(err));
   }
 
 }
