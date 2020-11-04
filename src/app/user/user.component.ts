@@ -1,6 +1,7 @@
 import { User } from './../model/user.model';
 import { Component, OnInit } from '@angular/core';
-import { USER_DATA } from '../model/mocks';
+import { DataService } from '../service/data.service';
+// import { USER_DATA } from '../model/mocks';
 
 @Component({
   selector : 'app-user',
@@ -11,8 +12,11 @@ export class UserComponent implements OnInit {
 
   users: User[];
 
+  constructor(private dataService: DataService) {}
+
   ngOnInit(){
-    this.users = USER_DATA;
+    // this.users = USER_DATA;
+    this.users = this.dataService.getData();
   }
 
   onMoreInfo(usr: User) {

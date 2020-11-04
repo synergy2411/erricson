@@ -13,6 +13,7 @@ import { NationalCodePipe } from './pipe/national-code.pipe';
 import { FilterPipe } from './pipe/filter.pipe';
 import { RegisterComponent } from './auth/register/register.component';
 import { LoginComponent } from './auth/login/login.component';
+import { DataService } from './service/data.service';
 
 @NgModule({
   declarations: [   // Component, Pipe, Directive
@@ -33,7 +34,7 @@ import { LoginComponent } from './auth/login/login.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],      // Services
+  providers: [DataService],      // Services
   bootstrap: [AppComponent]
 })
 export class AppModule { }
