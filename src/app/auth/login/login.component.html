@@ -1,0 +1,84 @@
+<div class="card">
+  <div class="card-header">
+    <p class="display-4 text-center">Login Form</p>
+  </div>
+  <div class="card-body">
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+      <!-- Username -->
+      <div class="form-group">
+        <div class="row">
+          <div class="col-sm-4 col-md-4">
+            <label for="username">Username : </label>
+          </div>
+          <div class="col-sm-8 col-md-8">
+            <input type="text"
+              name="username"
+              class="form-control"
+              [formControl] = "username">
+          </div>
+        </div>
+
+        <div [hidden]="!username.untouched || username.valid">
+          <p class="alert alert-danger">
+            *Some problem with Username field.
+          </p>
+          <div [hidden] = "!username.hasError('required')">
+              <p class="alert alert-danger">
+                 - Username is required field.
+              </p>
+          </div>
+          <div [hidden] = "!username.hasError('email')">
+            <p class="alert alert-danger">
+              - Username field needs email format.
+           </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Password -->
+      <div class="form-group">
+        <div class="row">
+          <div class="col-sm-4 col-md-4">
+            <label for="password">Password : </label>
+          </div>
+          <div class="col-sm-8 col-md-8">
+            <input type="password"
+              name="password"
+              class="form-control"
+              [formControl] = "password">
+          </div>
+        </div>
+
+        <div [hidden] = "!password.untouched && password.valid">
+          <p class="alert alert-danger">
+            *Some problem with password field
+          </p>
+          <div [hidden]="!password.hasError('required')">
+            <p class="alert alert-danger">
+              - Pa  ssword is required field.
+            </p>
+          </div>
+          <div [hidden] ="!password.hasError('minlength')">
+            <p class="alert alert-danger">
+              - Password field must have 6 character.
+            </p>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Submit Button -->
+      <div class="form-group">
+        <div class="row">
+          <div class="col-sm-4 col-md-4 offset-sm-4 offset-md-4">
+            <input type="submit" value="Login"
+              class="btn btn-outline-success btn-block">
+          </div>
+
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
