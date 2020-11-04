@@ -2,3 +2,11 @@
 
 <button (click) = "onSubscribe()" class="btn btn-light">Subscribe</button>
 <button (click) = "onUnsubscribe()" class="btn btn-dark">Unsubscribe</button>
+
+<hr>
+
+<ul>
+  <li *ngFor="let pack of packages">
+    {{ pack }}
+  </li>
+</ul>

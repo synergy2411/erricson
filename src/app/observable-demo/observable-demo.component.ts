@@ -9,7 +9,7 @@ import { Observable, Subscription } from 'rxjs';
 })
 export class ObservableDemoComponent {
 
-  observableData = Observable.create((observer) => {
+  observableData = new Observable((observer) => {
     setTimeout(() => {
       observer.next('First Package');
     }, 1000);
@@ -20,15 +20,22 @@ export class ObservableDemoComponent {
       observer.next('Third Package');
     }, 5000);
     setTimeout(() => {
+      observer.error(new Error('Something bad happened'));
+    }, 6000);
+    setTimeout(() => {
       observer.complete();
     }, 7000);
   });
 
   unSub: Subscription;
+  packages: string[] = [];
 
   onSubscribe() {
     this.unSub = this.observableData.subscribe(
-      (value) => {console.log(value)},
+      (value: string) => {
+        // console.log(value);
+        this.packages.push(value);
+      },
       (err) => {console.log(err)},
       () => {console.log('COMPLETED')}
     )
