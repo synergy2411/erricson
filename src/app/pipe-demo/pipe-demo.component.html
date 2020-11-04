@@ -1,3 +1,9 @@
+<div class="container">
+  <h1>Counter in PipeDemo Component : {{ dataService.counter }}</h1>
+  <button class="btn btn-dark" (click)="onIncrease()">Increase</button>
+</div>
+
+
 <h1>Pipe Demo</h1>
 <h2>Data : {{ data | async | uppercase }}</h2>
 <h2>Contact Number : {{ contactNo | nationalCode }}</h2>

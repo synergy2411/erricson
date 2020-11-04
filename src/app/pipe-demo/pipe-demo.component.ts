@@ -1,9 +1,11 @@
+import { DataService } from './../service/data.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-pipe-demo',
   templateUrl: './pipe-demo.component.html',
-  styleUrls: ['./pipe-demo.component.css']
+  styleUrls: ['./pipe-demo.component.css'],
+  // providers : [DataService]
 })
 export class PipeDemoComponent {
   data = new Promise((resolve, reject) => {
@@ -15,6 +17,12 @@ export class PipeDemoComponent {
   contactNo = 987654321;
 
   filteredStatus = "";
+
+  constructor(public dataService: DataService){}
+
+  onIncrease() {
+    this.dataService.counter++;
+  }
 
   todos = [{
     label: 'Pot the plant',

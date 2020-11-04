@@ -1,3 +1,4 @@
+import { DataService } from './service/data.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -9,6 +10,11 @@ export class AppComponent {
   appName = 'My Awesome User App';
   bool = true;
 
+  constructor(public dataService: DataService) {}
+
+  onIncrease() {
+    this.dataService.counter++;
+  }
   onToggle() {
     this.bool = !this.bool;
   }

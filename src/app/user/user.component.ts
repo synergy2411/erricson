@@ -11,7 +11,6 @@ import { DataService } from '../service/data.service';
 export class UserComponent implements OnInit {
 
   users: User[];
-
   constructor(private dataService: DataService) {}
 
   ngOnInit(){
