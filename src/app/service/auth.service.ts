@@ -19,7 +19,7 @@ export class AuthService {
       }).catch(err => console.log(err));
   }
 
-  login(email: string, password: string){
+  login(email: string, password: string) {
     firebase.default.auth()
       .signInWithEmailAndPassword(email, password)
       .then(response => {
@@ -34,11 +34,11 @@ export class AuthService {
       }).catch(err => console.log(err));
   }
 
-  getToken(){
+  getToken() {
     return this.token;
   }
 
-  isAuthenticated(){
+  isAuthenticated() {
     return this.token != null;
   }
 

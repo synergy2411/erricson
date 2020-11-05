@@ -1,3 +1,4 @@
+import { LoginGaurdService } from './service/login-gaurd.service';
 import { SpecificationComponent } from './product/specification/specification.component';
 import { OverviewComponent } from './product/overview/overview.component';
 import { ProductComponent } from './product/product.component';
@@ -13,36 +14,37 @@ export const APP_ROUTES: Routes = [{
   path : '',                  // http://localhost:4200
   redirectTo : 'login',
   pathMatch : 'full'
-},{
+}, {
   path : 'login',                // http://localhost:4200/login
   component : LoginComponent
-},{
+}, {
   path: 'register',              // http://localhost:4200/register
   component : RegisterComponent
-},{
+}, {
   path : 'pipe',                 // http://localhost:4200/pipe
   component: PipeDemoComponent
 }, {
   path: 'observable',                  // http://localhost:4200/observable
   component : ObservableDemoComponent
-},{
+}, {
   path : 'lifecycle',                  // http://localhost:4200/lifecycle
   component : LifeCycleDemoComponent
-},{
+}, {
   path : 'users',                      // http://localhost:4200/users
-  component: UserComponent
-},{
-  path : 'product',                     // http://localhost:4200/product
+  component: UserComponent,
+  canActivate: [LoginGaurdService]
+}, {
+  path : 'product/:id/:prod_name',                     // http://localhost:4200/product
   component : ProductComponent,
-  children:[{
+  children: [{
     path: 'overview',                   // http://localhost:4200/product/overview
     component : OverviewComponent
-  },{
+  }, {
     path: 'specification',                // http://localhost:4200/product/specification
     component : SpecificationComponent
   }]
-},{
+}, {
   path : '**',                          // http://localhost:4200/nowhere //if url does not match above mentioned paths
   redirectTo : 'login',
   pathMatch : 'full'
-}]
+}];
