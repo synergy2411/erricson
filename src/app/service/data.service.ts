@@ -20,7 +20,7 @@ export class DataService {
   }
 
   getRestData() {
-    return this.httpClient.get('https://ng-proj-39b77.firebaseio.com/users.json?auth=' + this.authService.getToken());
+    return this.httpClient.get('https://ng-proj-39b77.firebaseio.com/users.json');
   }
 
 }

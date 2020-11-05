@@ -1,8 +1,9 @@
+import { LoggerInterceptorService } from './service/logger-interceptor.service';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { EmployeeModule } from './employee/employee.module';
 
@@ -24,6 +25,7 @@ import { HeaderComponent } from './header/header.component';
 import { ProductComponent } from './product/product.component';
 import { OverviewComponent } from './product/overview/overview.component';
 import { SpecificationComponent } from './product/specification/specification.component';
+import { AuthInterceptorService } from './service/auth-interceptor.service';
 
 
 @NgModule({
@@ -53,7 +55,15 @@ import { SpecificationComponent } from './product/specification/specification.co
     EmployeeModule,             // Eagerly loaded
     RouterModule.forRoot(APP_ROUTES)
   ],
-  providers: [DataService],      // Services
+  providers: [DataService,{
+    provide : HTTP_INTERCEPTORS,
+    useClass : AuthInterceptorService,
+    multi : true
+  },{
+    provide : HTTP_INTERCEPTORS,
+    useClass : LoggerInterceptorService,
+    multi : true
+  }],      // Services
   bootstrap: [AppComponent]
 })
 export class AppModule { }
