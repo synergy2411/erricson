@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { EmployeeModule } from './employee/employee.module';
 
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
@@ -49,6 +50,7 @@ import { SpecificationComponent } from './product/specification/specification.co
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    EmployeeModule,             // Eagerly loaded
     RouterModule.forRoot(APP_ROUTES)
   ],
   providers: [DataService],      // Services

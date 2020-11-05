@@ -47,6 +47,7 @@ export class AuthService {
       .then(response => {
         this.token = null;
         this.router.navigateByUrl('/login');
+        // this.router.navigate(['/login', '12'] );
       }).catch(err => console.log(err));
   }
 

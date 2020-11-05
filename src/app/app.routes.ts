@@ -43,6 +43,9 @@ export const APP_ROUTES: Routes = [{
     path: 'specification',                // http://localhost:4200/product/specification
     component : SpecificationComponent
   }]
+},{
+  path: 'lazy',
+  loadChildren : './lazy/lazy.module#LazyModule'                   // 'path/to/module/filename#ModuleName'
 }, {
   path : '**',                          // http://localhost:4200/nowhere //if url does not match above mentioned paths
   redirectTo : 'login',
