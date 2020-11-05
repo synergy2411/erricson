@@ -1,3 +1,6 @@
+import { SpecificationComponent } from './product/specification/specification.component';
+import { OverviewComponent } from './product/overview/overview.component';
+import { ProductComponent } from './product/product.component';
 import { UserComponent } from './user/user.component';
 import { LifeCycleDemoComponent } from './life-cycle-demo/life-cycle-demo.component';
 import { Routes } from '@angular/router';
@@ -28,6 +31,16 @@ export const APP_ROUTES: Routes = [{
 },{
   path : 'users',                      // http://localhost:4200/users
   component: UserComponent
+},{
+  path : 'product',                     // http://localhost:4200/product
+  component : ProductComponent,
+  children:[{
+    path: 'overview',                   // http://localhost:4200/product/overview
+    component : OverviewComponent
+  },{
+    path: 'specification',                // http://localhost:4200/product/specification
+    component : SpecificationComponent
+  }]
 },{
   path : '**',                          // http://localhost:4200/nowhere //if url does not match above mentioned paths
   redirectTo : 'login',

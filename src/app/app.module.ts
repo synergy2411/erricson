@@ -20,6 +20,9 @@ import { DataService } from './service/data.service';
 import { ObservableDemoComponent } from './observable-demo/observable-demo.component';
 import { APP_ROUTES } from './app.routes';
 import { HeaderComponent } from './header/header.component';
+import { ProductComponent } from './product/product.component';
+import { OverviewComponent } from './product/overview/overview.component';
+import { SpecificationComponent } from './product/specification/specification.component';
 
 
 @NgModule({
@@ -36,7 +39,10 @@ import { HeaderComponent } from './header/header.component';
     RegisterComponent,
     LoginComponent,
     ObservableDemoComponent,
-    HeaderComponent
+    HeaderComponent,
+    ProductComponent,
+    OverviewComponent,
+    SpecificationComponent
   ],
   imports: [        // Modules - Built-in / Custom Module
     BrowserModule,
