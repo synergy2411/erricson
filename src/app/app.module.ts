@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { EmployeeModule } from './employee/employee.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
@@ -26,6 +27,7 @@ import { ProductComponent } from './product/product.component';
 import { OverviewComponent } from './product/overview/overview.component';
 import { SpecificationComponent } from './product/specification/specification.component';
 import { AuthInterceptorService } from './service/auth-interceptor.service';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -53,13 +55,14 @@ import { AuthInterceptorService } from './service/auth-interceptor.service';
     ReactiveFormsModule,
     HttpClientModule,
     EmployeeModule,             // Eagerly loaded
-    RouterModule.forRoot(APP_ROUTES)
+    RouterModule.forRoot(APP_ROUTES),
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [DataService,{
+  providers: [DataService, {
     provide : HTTP_INTERCEPTORS,
     useClass : AuthInterceptorService,
     multi : true
-  },{
+  }, {
     provide : HTTP_INTERCEPTORS,
     useClass : LoggerInterceptorService,
     multi : true

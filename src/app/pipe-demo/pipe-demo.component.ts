@@ -16,28 +16,28 @@ export class PipeDemoComponent {
   todos = [{
     label: 'Pot the plant',
     status : 'pending'
-  },{
+  }, {
     label: 'read the book',
     status : 'done'
-  },{
+  }, {
     label: 'buy the pulses',
     status : 'pending'
-  },{
+  }, {
     label: 'renew the insurance',
     status : 'done'
-  }]
+  }];
 
   contactNo = 987654321;
 
   filteredStatus = '';
 
-  constructor(public dataService: DataService){}
+  constructor(public dataService: DataService) {}
 
   onIncrease() {
     this.dataService.counter++;
   }
 
-  onAddNewItem(){
+  onAddNewItem() {
     this.todos.push({label : 'New Item', status : 'pending'});
   }
 
